@@ -11,6 +11,17 @@ public class Behaviour : MonoBehaviour
     public LoseQuest lose;
     public WinQuest win;
 
+    [SerializeField]
+    private Text countText;
+
+    public int count;
+
+
+    public void Start()
+    {
+        count = 0;
+        countText.text = "Count: 0";
+    }
 
     public void StartGame()
     {
@@ -26,14 +37,24 @@ public class Behaviour : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    public int i;
+    public void Zurueck()
+    {
+        if (lose.lost == true)
+        {
+            count = 0;
+            a.SetTrigger("fin");
+        }
+    }
 
-    private void ChangeLevel(/*int i*/)
+    /* public void ChangeLevel(int i)
     {
         if (i == 0)
         {
+            Debug.Log("Null");
             animator.SetTrigger("Return");
+            a.SetTrigger("ohno");
         }
+
         if (i == 1)
         {
             animator.SetTrigger("Level2");
@@ -43,8 +64,35 @@ public class Behaviour : MonoBehaviour
         {
             animator.SetTrigger("Level3");
         }
+    } */
+
+    public void Update()
+    {
+        if (count == 0)
+        {
+            Debug.Log("Null");
+            animator.SetTrigger("Return");
+        }
+
+        if (count == 1)
+        {
+            Debug.Log("Eins");
+            animator.SetTrigger("Level1");
+        }
+
+        if (count == 2)
+        {
+            Debug.Log("Zwei");
+            animator.SetTrigger("Level2");
+        }
+
+        if (count == 2)
+        {
+            Debug.Log("You Win!");
+        }
     }
 
+    /*
     public void Update()
     {
         if (lose.lost == true)
@@ -61,5 +109,5 @@ public class Behaviour : MonoBehaviour
         {
             animator.SetTrigger("Level3");
         }
-    }
+    }  */
 }
