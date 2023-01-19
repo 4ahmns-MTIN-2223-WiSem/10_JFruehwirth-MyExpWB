@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoseQuest : MonoBehaviour
 {
-    public bool lost = false;
+    /* public bool lost = false;
     public Behaviour behaviour;
 
     private void OnTriggerEnter(Collider other)
@@ -13,5 +13,5 @@ public class LoseQuest : MonoBehaviour
         lost = true;
         behaviour.Zurueck();
         behaviour.count = 0;
-    }
+    } */
 }

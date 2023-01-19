@@ -11,11 +11,16 @@ public class Behaviour : MonoBehaviour
     public LoseQuest lose;
     public WinQuest win;
 
-    [SerializeField]
-    private Text countText;
+    public TextMesh countText; // kann keinen 3D Text im Inspector einbinden
 
     public int count;
 
+    public GameObject bear;
+
+    public List<GameObject> noButtonPress;
+    public GameObject pressStart;
+    public GameObject pressInteract;
+    public GameObject pressStop;
 
     public void Start()
     {
@@ -23,28 +28,35 @@ public class Behaviour : MonoBehaviour
         countText.text = "Count: 0";
     }
 
-    public void StartGame()
+    /* public void StartGame()
     {
         animator.enabled = true;
         a.enabled = true;
-    }
+    } */
 
-    public void InteractGame()
+    /* public void InteractGame()
     {
         a.SetTrigger("pressed");
-    }
+    } */
 
-    [SerializeField]
-    private Animator animator;
+    public Animator animator;
 
-    public void Zurueck()
+    /*public void Zurueck()
     {
         if (lose.lost == true)
         {
             count = 0;
             a.SetTrigger("fin");
         }
-    }
+    }*/
+
+    /* public void onClick()
+    {
+        if (win == true)
+        {
+            Debug.Log("Jura");
+        }
+    } */
 
     /* public void ChangeLevel(int i)
     {
@@ -71,25 +83,35 @@ public class Behaviour : MonoBehaviour
         if (count == 0)
         {
             Debug.Log("Null");
-            animator.SetTrigger("Return");
+            //animator.SetTrigger("Return");
         }
 
         if (count == 1)
         {
             Debug.Log("Eins");
-            animator.SetTrigger("Level1");
+            animator.SetTrigger("Level2");
+            countText.text = "Count: 1";
         }
 
         if (count == 2)
         {
             Debug.Log("Zwei");
-            animator.SetTrigger("Level2");
+            animator.SetTrigger("Level3");
+            countText.text = "Count: 2";
         }
 
-        if (count == 2)
+        if (count == 3)
         {
             Debug.Log("You Win!");
+            countText.text = "You Win!";
+            animator.SetTrigger("Fin");
+            bear.SetActive(true);
         }
+
+        /* if (a.SetTrigger() == a.SetTrigger("pressed") & win == true)
+        {
+            count++;
+        } */
     }
 
     /*
